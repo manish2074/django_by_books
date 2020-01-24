@@ -10,6 +10,9 @@ django = "==2.2.2"
 python-dotenv = "*"
 pytz = "*"
 django-taggit = "==1.2.0"
+markdown = "==2.6.2"
+pysolr = "==3.3.2"
+django-haystack = "*"
 
 [requires]
 python_version = "3.7"

@@ -1,4 +1,6 @@
+
 {% extends "partials/base.html" %}
+{% load blog_tags %}
 {% block title %}
 
 {{ post.title }}
@@ -10,7 +12,7 @@
 <p class="date">
 Published {{ post.publish }} by {{ post.author }}
 </p>
-{{ post.body|linebreaks }}
+{{ post.body|markdown }}
 <p>
 <a href="{{ post.get_share_url }}">
 Share this post
@@ -27,12 +29,12 @@ Share this post
   {% empty %}
   There are no similar posts yet.
 {% endfor %}
-{% with comments.count as total_comments %}
+{% with comment.count as total_comments %}
 <h2>
 {{total_comments}} comment{{total_comments|pluralize}}
 </h2>
 {% endwith %}
-{% for comment in comments %}
+{% for comment in comment %}
 <div class="comment">
 <p class="info">
 Comment {{forloop.counter}} by {{comment.name}}

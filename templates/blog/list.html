@@ -1,4 +1,5 @@
 {% extends "partials/base.html" %}
+{% load blog_tags %}
 
 {% block title %}
 My Blog
@@ -18,7 +19,7 @@ My Blog
 <p class="date">
 Published {{ post.publish }} by {{ post.author }}
 </p>
-{{ post.body|truncatechars:30|linebreaks }}
+{{ post.body|markdown|truncatechars:30 }}
 <p class="tags">
 Tags:
 {% for tag in post.tags.all %}
